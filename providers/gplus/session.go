@@ -3,7 +3,7 @@ package gplus
 import (
 	"encoding/json"
 	"errors"
-	"github.com/markbates/goth"
+	"github.com/payaaam/goth"
 	"golang.org/x/oauth2"
 	"strings"
 	"time"

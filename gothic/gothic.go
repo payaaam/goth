@@ -12,9 +12,10 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/gorilla/sessions"
-	"github.com/markbates/goth"
+	"github.com/payaaam/goth"
 )
 
 // SessionName is the key used to access the session store.
@@ -173,10 +174,8 @@ var CompleteUserAuth = func(res http.ResponseWriter, req *http.Request) (goth.Us
 var GetProviderName = getProviderName
 
 func getProviderName(req *http.Request) (string, error) {
-	provider := req.URL.Query().Get("provider")
-	if provider == "" {
-		provider = req.URL.Query().Get(":provider")
-	}
+	url := req.URL.String()
+	provider := strings.Split(url, "/")[2]
 	if provider == "" {
 		return provider, errors.New("you must select a provider")
 	}

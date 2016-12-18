@@ -11,12 +11,12 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/markbates/goth"
+	"github.com/payaaam/goth"
 	"golang.org/x/oauth2"
 )
 
 const (
-	authURL         string = "https://accounts.google.com/o/oauth2/auth?access_type=offline"
+	authURL         string = "https://accounts.google.com/o/oauth2/auth?access_type=online"
 	tokenURL        string = "https://accounts.google.com/o/oauth2/token"
 	endpointProfile string = "https://www.googleapis.com/oauth2/v2/userinfo"
 )
@@ -45,7 +45,7 @@ type Provider struct {
 
 // Name is the name used to retrieve this provider later.
 func (p *Provider) Name() string {
-	return "gplus"
+	return "google"
 }
 
 // Debug is a no-op for the gplus package.
