@@ -43,8 +43,11 @@ type Provider struct {
 	prompt      oauth2.AuthCodeOption
 }
 
+// Allow for overwriting name field
+var Name = name
+
 // Name is the name used to retrieve this provider later.
-func (p *Provider) Name() string {
+func name() string {
 	return "gplus"
 }
 

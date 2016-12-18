@@ -173,6 +173,7 @@ var CompleteUserAuth = func(res http.ResponseWriter, req *http.Request) (goth.Us
 var GetProviderName = getProviderName
 
 func getProviderName(req *http.Request) (string, error) {
+
 	provider := req.URL.Query().Get("provider")
 	if provider == "" {
 		provider = req.URL.Query().Get(":provider")
